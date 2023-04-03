@@ -21,15 +21,8 @@ class CustomButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Container(
           decoration: BoxDecoration(
-            color: btnColor,
+            color: Colors.black38,
             borderRadius: BorderRadius.circular(20),
-            boxShadow: const [
-              BoxShadow(
-                color: AppColor.thirdColor,
-                blurRadius: 4,
-                offset: Offset(2, 8),
-              ),
-            ],
           ),
           child: ListTile(
             title: Text(

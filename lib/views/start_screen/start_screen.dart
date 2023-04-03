@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trivia_app/config/app_routes/app_routes.dart';
 import 'package:trivia_app/config/app_theme/app_color.dart';
 import 'package:trivia_app/views/widgets/custom_button.dart';
 
@@ -47,7 +48,11 @@ class StartScreen extends StatelessWidget {
               //* Random qouestion
               CustomButton(
                 title: "Random Questions",
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(
+                    AppRoutes.randomQuestionScreen,
+                  );
+                },
                 btnColor: AppColor.secondColor,
               ),
             ],
