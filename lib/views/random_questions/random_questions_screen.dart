@@ -1,8 +1,18 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:trivia_app/config/app_theme/app_color.dart';
+import 'package:trivia_app/data/arabic_questions.dart';
 
-class RandomQuestionsScreen extends StatelessWidget {
+class RandomQuestionsScreen extends StatefulWidget {
   const RandomQuestionsScreen({super.key});
+
+  @override
+  State<RandomQuestionsScreen> createState() => _RandomQuestionsScreenState();
+}
+
+class _RandomQuestionsScreenState extends State<RandomQuestionsScreen> {
+  int randomNumber = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +48,9 @@ class RandomQuestionsScreen extends StatelessWidget {
                           const SizedBox(height: 10),
                           TextButton.icon(
                             style: TextButton.styleFrom(
-                              side: const BorderSide(
-                                color: AppColor.textColor,
-                              )
-                            ),
+                                side: const BorderSide(
+                              color: AppColor.textColor,
+                            )),
                             label: const Text(
                               "Change a question",
                               style: TextStyle(
@@ -49,20 +58,31 @@ class RandomQuestionsScreen extends StatelessWidget {
                                 fontSize: 20,
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              setState(() {
+                                Random random = Random();
+                                randomNumber =
+                                    random.nextInt(arabicQuestions.length -1);
+                              });
+                            },
                             icon: const Icon(
                               Icons.restart_alt_outlined,
                               size: 30,
                               color: AppColor.textColor,
                             ),
                           ),
-                          const SizedBox(height: 10),
-                          const Text(
-                            "sss",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: AppColor.textColor,
-                              fontSize: 16,
+                          const SizedBox(height: 30),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              arabicQuestions[randomNumber],
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                color: AppColor.textColor,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                height: 2,
+                              ),
                             ),
                           ),
                         ],
