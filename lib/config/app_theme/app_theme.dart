@@ -5,13 +5,15 @@ class AppTheme {
   static ThemeData getMainTheme() {
     return ThemeData(
       scaffoldBackgroundColor: AppColor.mainColor,
-    
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColor.mainColor,
         elevation: 0,
         iconTheme: IconThemeData(
           color: AppColor.secondColor,
-        )
+        ),
+        titleTextStyle: TextStyle(
+          color: AppColor.secondColor,
+        ),
       ),
       cardColor: AppColor.secondColor,
       cardTheme: const CardTheme(

@@ -39,7 +39,9 @@ class StartScreen extends StatelessWidget {
               //* start game
               CustomButton(
                 title: "Start",
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(AppRoutes.teamScreen);
+                },
                 btnColor: AppColor.secondColor,
               ),
 
