@@ -18,7 +18,7 @@ class StartScreen extends StatelessWidget {
               //* logo
               Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: const Padding(
                   padding: EdgeInsets.all(16.0),
@@ -27,7 +27,7 @@ class StartScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: AppColor.textColor,
+                      color: AppColor.mainColor,
                       fontSize: 40,
                     ),
                   ),

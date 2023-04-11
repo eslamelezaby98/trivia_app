@@ -5,6 +5,8 @@ import 'package:trivia_app/controller/question_controller.dart';
 import 'package:trivia_app/data/arabic_questions.dart';
 import 'package:trivia_app/data/english_questions.dart';
 
+import 'language_widget.dart';
+
 class RandomQuestionsScreen extends StatelessWidget {
   const RandomQuestionsScreen({super.key});
 
@@ -23,7 +25,6 @@ class RandomQuestionsScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: LanguageWidget(
-                    ontap: () {},
                     title: "English",
                     controller: questionController,
                     isArabic: false,
@@ -31,7 +32,6 @@ class RandomQuestionsScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: LanguageWidget(
-                    ontap: () {},
                     title: "باللغة العربية",
                     controller: questionController,
                     isArabic: true,
@@ -46,13 +46,13 @@ class RandomQuestionsScreen extends StatelessWidget {
                 TextButton.icon(
                   style: TextButton.styleFrom(
                     side: const BorderSide(
-                      color: AppColor.textColor,
+                      color: AppColor.secondColor,
                     ),
                   ),
                   label: const Text(
                     "Change a question",
                     style: TextStyle(
-                      color: AppColor.textColor,
+                      color: AppColor.secondColor,
                       fontSize: 20,
                     ),
                   ),
@@ -62,7 +62,7 @@ class RandomQuestionsScreen extends StatelessWidget {
                   icon: const Icon(
                     Icons.restart_alt_outlined,
                     size: 30,
-                    color: AppColor.textColor,
+                    color: AppColor.secondColor,
                   ),
                 ),
                 const SizedBox(height: 30),
@@ -74,7 +74,7 @@ class RandomQuestionsScreen extends StatelessWidget {
                         : englishList[questionController.randomNumber],
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      color: AppColor.textColor,
+                      color: AppColor.secondColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       height: 2,
@@ -84,52 +84,6 @@ class RandomQuestionsScreen extends StatelessWidget {
               ],
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class LanguageWidget extends StatelessWidget {
-  const LanguageWidget({
-    Key? key,
-    required this.ontap,
-    required this.title,
-    required this.controller,
-    required this.isArabic,
-  }) : super(key: key);
-  final String title;
-  final Function() ontap;
-  final QuestionController controller;
-  final bool isArabic;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        controller.changeLanague();
-      },
-      child: Card(
-        color: controller.isArabic == isArabic
-            ? Colors.black38
-            : AppColor.mainColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-        semanticContainer: false,
-        borderOnForeground: false,
-        clipBehavior: Clip.none,
-        child: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: Text(
-            title,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              color: AppColor.textColor,
-              fontSize: 30,
-            ),
-          ),
         ),
       ),
     );
