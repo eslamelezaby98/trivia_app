@@ -23,10 +23,10 @@ class TeamController extends ChangeNotifier {
     notifyListeners();
   }
 
-  getNextMembers({
+  Future getNextMembers({
     required StreamController<int> answerController,
     required StreamController<int> questionController,
-  }) {
+  }) async {
     answerController.add(
       Fortune.randomInt(0, teamList.length),
     );

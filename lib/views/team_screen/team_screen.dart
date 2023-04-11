@@ -81,12 +81,9 @@ class TeamScreen extends StatelessWidget {
           SafeArea(
             child: BuildSubmitButton(
               btnColor: AppColor.thereColor,
-              text: "Satrt",
+              text: "Start",
               onTap: () {
-                Navigator.of(context).pushNamed(
-                  AppRoutes.gameScreen,
-                  arguments: teamController.teamList,
-                );
+                Navigator.of(context).pushNamed(AppRoutes.gameScreen);
               },
             ),
           ),

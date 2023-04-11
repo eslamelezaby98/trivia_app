@@ -21,9 +21,8 @@ class GenerateRoutes {
           builder: (context) => const TeamScreen(),
         );
       case AppRoutes.gameScreen:
-        List teamList = settings.arguments as List;
         return MaterialPageRoute(
-          builder: (context) => GameScreen(teamList: teamList),
+          builder: (context) => const GameScreen(),
         );
     }
     return null;

@@ -1,28 +1,8 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:trivia_app/views/game_screen/game_section_widget.dart';
 
-class GameScreen extends StatefulWidget {
-  const GameScreen({
-    super.key,
-    required this.teamList,
-  });
-  final List teamList;
-
-  @override
-  State<GameScreen> createState() => _GameScreenState();
-}
-
-class _GameScreenState extends State<GameScreen> {
-  StreamController<int> answerController = StreamController<int>();
-  StreamController<int> questionController = StreamController<int>();
-
-  @override
-  void dispose() {
-    answerController.close();
-    questionController.close();
-    super.dispose();
-  }
+class GameScreen extends StatelessWidget {
+  const GameScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +11,11 @@ class _GameScreenState extends State<GameScreen> {
         title: const Text("Game"),
       ),
       body: Column(
-        children: [
+        children: const [
           //* game sections
-          GameSectionWidget(
-            answerController: answerController,
-            questionController: questionController,
-          ),
+          GameSectionWidget(),
 
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
 
           // get a random question
         ],

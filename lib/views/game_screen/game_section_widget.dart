@@ -9,14 +9,23 @@ import '../../controller/team_controller.dart';
 import '../widgets/build_submit_button.dart';
 import 'fortune_bar_widget.dart';
 
-class GameSectionWidget extends StatelessWidget {
-  const GameSectionWidget({
-    super.key,
-    required this.answerController,
-    required this.questionController,
-  });
-  final StreamController<int> answerController;
-  final StreamController<int> questionController;
+class GameSectionWidget extends StatefulWidget {
+  const GameSectionWidget({super.key});
+
+  @override
+  State<GameSectionWidget> createState() => _GameSectionWidgetState();
+}
+
+class _GameSectionWidgetState extends State<GameSectionWidget> {
+  StreamController<int> answerController = StreamController<int>();
+  StreamController<int> questionController = StreamController<int>();
+
+  @override
+  void dispose() {
+    super.dispose();
+    answerController.close();
+    questionController.close();
+  }
 
   @override
   Widget build(BuildContext context) {
