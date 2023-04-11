@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 
 class TeamController extends ChangeNotifier {
   TextEditingController teamName = TextEditingController();
@@ -17,6 +20,19 @@ class TeamController extends ChangeNotifier {
 
   void deleteAllMemebers() {
     teamList.clear();
+    notifyListeners();
+  }
+
+  getNextMembers({
+    required StreamController<int> answerController,
+    required StreamController<int> questionController,
+  }) {
+    answerController.add(
+      Fortune.randomInt(0, teamList.length),
+    );
+    questionController.add(
+      Fortune.randomInt(0, teamList.length),
+    );
     notifyListeners();
   }
 

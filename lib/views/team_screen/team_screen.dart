@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:trivia_app/config/app_routes/app_routes.dart';
 import 'package:trivia_app/config/app_theme/app_color.dart';
 import 'package:trivia_app/controller/team_controller.dart';
 import 'package:trivia_app/views/widgets/build_text_button.dart';
+
+import '../widgets/build_submit_button.dart';
 
 class TeamScreen extends StatelessWidget {
   const TeamScreen({super.key});
@@ -76,30 +79,15 @@ class TeamScreen extends StatelessWidget {
             ),
           ),
           SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: AppColor.thereColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                onPressed: () {},
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Center(
-                    child: Text(
-                      "Start",
-                      style: TextStyle(
-                        color: AppColor.mainColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+            child: BuildSubmitButton(
+              btnColor: AppColor.thereColor,
+              text: "Satrt",
+              onTap: () {
+                Navigator.of(context).pushNamed(
+                  AppRoutes.gameScreen,
+                  arguments: teamController.teamList,
+                );
+              },
             ),
           ),
         ],

@@ -4,4 +4,6 @@ class AppRoutes {
   static const String randomQuestionScreen = "/randomQuestionScreen";
 
   static const String teamScreen = "/teamScreen";
+
+  static const String gameScreen = "/gameScreen";
 }
