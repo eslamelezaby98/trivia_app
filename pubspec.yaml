@@ -66,6 +66,7 @@ flutter:
   assets:
     - assets/sounds/drum.mp3
     - assets/fonts/
+    - assets/image/party_game.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

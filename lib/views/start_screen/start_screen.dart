@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trivia_app/config/app_routes/app_routes.dart';
+import 'package:trivia_app/config/app_setting/app_setting.dart';
 import 'package:trivia_app/config/app_theme/app_color.dart';
 import 'package:trivia_app/views/widgets/custom_button.dart';
 
@@ -16,20 +17,12 @@ class StartScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //* logo
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Text(
-                    "Party \n Game",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: AppColor.mainColor,
-                      fontSize: 40,
-                    ),
+              Container(
+                height: 200,
+                width: 200,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(AppSetting.logo),
                   ),
                 ),
               ),
