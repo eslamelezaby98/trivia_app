@@ -4,6 +4,7 @@ import 'package:trivia_app/config/app_theme/app_color.dart';
 class AppTheme {
   static ThemeData getMainTheme() {
     return ThemeData(
+      fontFamily: "Tajawal",
       scaffoldBackgroundColor: AppColor.mainColor,
       appBarTheme: const AppBarTheme(
         backgroundColor: AppColor.mainColor,

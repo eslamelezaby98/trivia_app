@@ -80,7 +80,7 @@ class TeamScreen extends StatelessWidget {
           ),
           SafeArea(
             child: BuildSubmitButton(
-              btnColor: AppColor.thereColor,
+              btnColor: AppColor.secondColor,
               text: "Start",
               onTap: () {
                 if (teamController.teamList.isNotEmpty) {
