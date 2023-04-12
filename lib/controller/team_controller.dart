@@ -1,13 +1,22 @@
 import 'dart:async';
-
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 
 class TeamController extends ChangeNotifier {
   TextEditingController teamName = TextEditingController();
   List teamList = [];
+  AudioCache audioCache = AudioCache();
+  AudioPlayer audioPlayer = AudioPlayer();
 
-  void addToTeam() {
+  void addToTeam({required BuildContext context}) {
+    if (teamName.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Name is empty"),
+        ),
+      );
+    }
     teamList.add(teamName.text);
     teamName.clear();
     notifyListeners();
@@ -27,6 +36,7 @@ class TeamController extends ChangeNotifier {
     required StreamController<int> answerController,
     required StreamController<int> questionController,
   }) async {
+    await audioPlayer.play(AssetSource("sounds/drum.mp3"));
     answerController.add(
       Fortune.randomInt(0, teamList.length),
     );
@@ -34,6 +44,7 @@ class TeamController extends ChangeNotifier {
       Fortune.randomInt(0, teamList.length),
     );
     notifyListeners();
+    // await audioPlayer.pause();
   }
 
   @override

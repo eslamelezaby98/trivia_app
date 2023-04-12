@@ -35,7 +35,7 @@ class FortuneBarWidget extends StatelessWidget {
           child: FortuneBar(
             selected: controller.stream,
             physics: CircularPanPhysics(
-              duration: const Duration(seconds: 1),
+              duration: const Duration(seconds: 3),
               curve: Curves.decelerate,
             ),
             onFling: onFling,

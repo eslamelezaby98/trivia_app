@@ -35,7 +35,7 @@ class TeamScreen extends StatelessWidget {
                     Expanded(
                       child: BuildTextButton(
                         onTap: () {
-                          teamController.addToTeam();
+                          teamController.addToTeam(context: context);
                         },
                         btnColor: AppColor.secondColor,
                         text: "Add",
@@ -83,7 +83,15 @@ class TeamScreen extends StatelessWidget {
               btnColor: AppColor.thereColor,
               text: "Start",
               onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.gameScreen);
+                if (teamController.teamList.isNotEmpty) {
+                  Navigator.of(context).pushNamed(AppRoutes.gameScreen);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Add Team"),
+                    ),
+                  );
+                }
               },
             ),
           ),
