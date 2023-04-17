@@ -3,8 +3,6 @@ import 'package:provider/provider.dart';
 import '../../config/app_theme/app_color.dart';
 import '../../controller/question_controller.dart';
 import '../../data/arabic_questions.dart';
-import '../../data/english_questions.dart';
-import '../random_questions/language_widget.dart';
 
 class RandomQuestionWidget extends StatelessWidget {
   const RandomQuestionWidget({super.key});
@@ -16,25 +14,25 @@ class RandomQuestionWidget extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: LanguageWidget(
-                  title: "English",
-                  controller: questionController,
-                  isArabic: false,
-                ),
-              ),
-              Expanded(
-                child: LanguageWidget(
-                  title: "باللغة العربية",
-                  controller: questionController,
-                  isArabic: true,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 20),
+          // Row(
+          //   children: [
+          //     // Expanded(
+          //     //   child: LanguageWidget(
+          //     //     title: "English",
+          //     //     controller: questionController,
+          //     //     isArabic: false,
+          //     //   ),
+          //     // ),
+          //     Expanded(
+          //       child: LanguageWidget(
+          //         title: "باللغة العربية",
+          //         controller: questionController,
+          //         isArabic: true,
+          //       ),
+          //     ),
+          //   ],
+          // ),
+          // const SizedBox(height: 20),
           Column(
             children: [
               const SizedBox(height: 10),
@@ -64,9 +62,7 @@ class RandomQuestionWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  questionController.isArabic
-                      ? arabicQuestions[questionController.randomNumber]
-                      : englishList[questionController.randomNumber],
+                  arabicQuestions[questionController.randomNumber],
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: AppColor.thereColor,
